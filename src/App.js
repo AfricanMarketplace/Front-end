@@ -17,7 +17,7 @@ function App() {
       <Route path="/login" component={Login}/>
       <Route path ="/register" component={Register}/>
 
-      <PrivateRoute />
+      <Route path="/item" /> // Make this a privateRoute 
       
 
 
