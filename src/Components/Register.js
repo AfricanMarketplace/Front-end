@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
-const Register = () => {
+import {connect} from "react-redux";
+
+import {registerAction} from "../actions/registerActions";
+
+
+const Register = (props) => {
 
 const [newUser,setNewUser] = useState({
     name: '',
@@ -17,9 +22,7 @@ const [newUser,setNewUser] = useState({
 
     const signUp = e => {
         e.preventDefault();
-
-    
-
+        props.registerAction(newUser)
     }
 
 
@@ -37,5 +40,13 @@ const [newUser,setNewUser] = useState({
         </div>
     )
 }
+const mapstateToProps = state => {
+    return {
+        user: state.user,
+        isRegistrating: state.isRegistrating,
+        err: state.err
+    }
+}
 
-export default Register;
+
+export default connect(mapstateToProps, {registerAction})(Register);

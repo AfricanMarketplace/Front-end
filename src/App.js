@@ -7,6 +7,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 
 import {BrowserRouter as Router, Route} from "react-router-dom";
+import ItemList from './Components/ItemList';
 
 
 
@@ -17,7 +18,7 @@ function App() {
       <Route path="/login" component={Login}/>
       <Route path ="/register" component={Register}/>
 
-      <Route path="/item" /> // Make this a privateRoute 
+      <PrivateRoute path="/item" component={ItemList}/> 
       
 
 

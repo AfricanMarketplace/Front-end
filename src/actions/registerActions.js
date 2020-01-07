@@ -5,7 +5,7 @@ export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAILURE = "REGISTER_FAILURE";
 
 
-export const register = user => {
+export const registerAction = user => {
     return dispatch => {
         dispatch({type: REGISTER_START});
        return axios 
