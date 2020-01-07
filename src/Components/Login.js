@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
-const Login = () => {
+const Login = (props) => {
 
     const [user, setUser]=useState({
         username:'',
@@ -14,17 +14,16 @@ const Login = () => {
     }
 
   const login = e => {
-    e.preventDefault()
-    //axiosWithAuth.post
-    axiosWithAuth()
-    .post("/login", user)
-    .then(res => console.log(res.data))
-}
-
+      e.preventDefault();
+      props.loginAction(user)
+  }
+// dont forget to add loginAction in mapStateToProps
     return (
         //Login Form goes here
         <div>
+            <form onSubmit={login}>
 
+            </form>
 
 
 

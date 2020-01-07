@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { axiosWithAuth } from "../utils/axiosWithAuth"
 
 const ItemList = () => {
@@ -7,18 +7,21 @@ const ItemList = () => {
 
         useEffect(() => {
             axiosWithAuth()
-            .get("")
-            .then(res => console.log(res.data))
-
-
-
-        })
+            .get("https://africa-marketplace.herokuapp.com/item")
+            .then(res => {
+                setItems(res.data)
+            
+            })
+            .catch(err => console.log(err))
+     })
 
 
 
     return (
         <div>
             
+
+
 
         </div>
     )
