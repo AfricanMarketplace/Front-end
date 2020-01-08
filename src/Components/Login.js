@@ -20,6 +20,7 @@ const Login = (props) => {
   const login = e => {
       e.preventDefault();
       props.loginAction(user)
+      props.history.push("/itemList")
   }
 
     return (

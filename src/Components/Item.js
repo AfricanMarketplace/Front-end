@@ -64,9 +64,7 @@ const deleteButton = e => {
         <div>
 
             {/* we are sharing items here via props */}
-            {/* We need update button here with an onClick={handleSubmit} */}
-            {/* We also need the delete button here with an onClick */}
-
+            
             <button onClick={handleSubmit}>Edit Item</button>
             <button onClick={deleteButton}>Delete Item</button>
 
