@@ -1,5 +1,8 @@
 import React,{useState} from "react";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+
+import {connect} from "react-redux";
+import {loginAction} from "../actions/loginActions";
+
 import { Link } from "react-router-dom"
 
 const Login = (props) => {
@@ -18,9 +21,9 @@ const Login = (props) => {
       e.preventDefault();
       props.loginAction(user)
   }
-// dont forget to add loginAction in mapStateToProps
+
     return (
-        //Login Form goes here
+       
         <div>
             <form onSubmit={login}>
             <label> Username
@@ -49,4 +52,12 @@ const Login = (props) => {
     )
 }
 
-export default Login;
+const mapStateToProps = state => {
+    return {
+        user: state.user,
+        isLoading: state.isLoading,
+        err: state.error  
+    }
+}
+
+export default connect(mapStateToProps, {loginAction})(Login);

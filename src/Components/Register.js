@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"
 
-const Register = () => {
+import {connect} from "react-redux";
+
+import {registerAction} from "../actions/registerActions";
+
+
+const Register = (props) => {
 
 const [newUser,setNewUser] = useState({
-    name: '',
-    email: '',
     username: '',
     password: ''
 })
@@ -18,9 +21,7 @@ const [newUser,setNewUser] = useState({
 
     const signUp = e => {
         e.preventDefault();
-
-    
-
+        props.registerAction(newUser)
     }
 
 
@@ -28,8 +29,8 @@ const [newUser,setNewUser] = useState({
     return (
         //Registration Form goes here
         <div>
-            <form>
-                <label> Your Name
+            <form onSubmit={signUp}>
+                {/* <label> Your Name
                 <input 
                     type="text" 
                     name="name" 
@@ -42,7 +43,7 @@ const [newUser,setNewUser] = useState({
                     name="email" 
                     onChange={handleChanges} 
                 />
-                </label>
+                </label> */}
                 <label> Set a Username
                 <input 
                     type="text" 
@@ -63,5 +64,12 @@ const [newUser,setNewUser] = useState({
         </div>
     )
 }
+const mapstateToProps = state => {
+    return {
+        isRegistrating: state.isRegistrating,
+        err: state.err
+    }
+}
 
-export default Register;
+
+export default connect(mapstateToProps, {registerAction})(Register);

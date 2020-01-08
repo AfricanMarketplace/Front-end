@@ -1,7 +1,6 @@
 import {REGISTER_START, REGISTER_SUCCESS, REGISTER_FAILURE} from "../actions/registerActions";
 
 const initialState = {
-    user: '',
     isRegistrating: '',
     err: ''
 }
@@ -25,7 +24,7 @@ export const registerReducer = (state=initialState, action) => {
                 isRegistrating: false,
                 err: action.payload
             }
-            
+
         default: 
         return state;
     }
