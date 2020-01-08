@@ -1,5 +1,8 @@
 import React,{useState} from "react";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+
+import {connect} from "react-redux";
+import {loginAction} from "../actions/loginActions";
+
 import { Link } from "react-router-dom"
 
 import {connect} from "react-redux";
@@ -30,9 +33,9 @@ const Login = (props) => {
       e.preventDefault();
       props.loginAction(user)
   }
-// dont forget to add loginAction in mapStateToProps
+
     return (
-        //Login Form goes here
+       
         <div>
             <form onSubmit={login, handleSubmit(onSubmit)}>
             <label> Username
