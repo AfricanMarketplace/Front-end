@@ -5,9 +5,6 @@ import {loginAction} from "../actions/loginActions";
 
 import { Link } from "react-router-dom"
 
-import {connect} from "react-redux";
-import {loginAction} from "../actions/loginActions";
-
 import {useForm} from "react-hook-form"
 
 const Login = (props) => {
