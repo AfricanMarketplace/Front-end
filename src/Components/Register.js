@@ -59,7 +59,7 @@ const [newUser,setNewUser] = useState({
                 <button type="submit">Sign Up</button>
             </form>
             <h5>Already have an account?</h5>
-            <Link to="/login">Log In</Link>
+            <Link to="/">Log In</Link>
         </div>
     )
 }

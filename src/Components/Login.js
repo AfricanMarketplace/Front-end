@@ -2,7 +2,19 @@ import React,{useState} from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { Link } from "react-router-dom"
 
+import {connect} from "react-redux";
+import {loginAction} from "../actions/loginActions";
+
+import {useForm} from "react-hook-form"
+
 const Login = (props) => {
+
+    const {register, handleSubmit, errors} =useForm()
+
+    const onSubmit = data => {
+        console.log(data)
+    }
+
 
     const [user, setUser]=useState({
         username:'',
@@ -22,14 +34,16 @@ const Login = (props) => {
     return (
         //Login Form goes here
         <div>
-            <form onSubmit={login}>
+            <form onSubmit={login, handleSubmit(onSubmit)}>
             <label> Username
                 <input 
                     name="username"
                     type="text"
                     placeholder="User Name"
                     onChange={handleChanges} 
+                    ref={register({required: true, minLength: 4})}
                 />
+                {errors.username && <span>This field is required</span>}
                 </label>
                 <label> Password
                 <input 
@@ -49,4 +63,11 @@ const Login = (props) => {
     )
 }
 
-export default Login;
+const mapStateToProps = state => {
+    return {
+        user: state.user,
+        isLoading: state.isLoading,
+        err: state.error  
+    }
+}
+export default connect(mapStateToProps, {loginAction})(Login);

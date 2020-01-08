@@ -1,28 +1,30 @@
 import React, { useState, useEffect } from "react"
-import { axiosWithAuth } from "../utils/axiosWithAuth"
+import axios from "axios"
+import Item from "./Item"
+import AddItemForm from "./AddItemForm"
+
 
 const ItemList = () => {
 
-    const [items, setItems] = useState()
+    const [items, setItems] = useState([])
 
         useEffect(() => {
-            axiosWithAuth()
+            axios
             .get("https://africa-marketplace.herokuapp.com/item")
             .then(res => {
-                setItems(res.data)
-            
+                setItems(res.data.items)
+                console.log(res.data)
             })
             .catch(err => console.log(err))
-     })
+     },[])
 
 
 
     return (
         <div>
-            
-
-
-
+            {items.map(item => {
+                return(<Item item={item} key={item.id} />)
+            })}
         </div>
     )
 }
