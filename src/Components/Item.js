@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+import axios from "axios";
 import { publicDecrypt } from "crypto";
 
 const initialItem = {
@@ -12,7 +12,7 @@ const initialItem = {
 
 }
 
-const Item = () => {
+const Item = (props) => {
 
 const [updateItem, setUpdateItem] = useState(initialItem)
 
@@ -48,14 +48,27 @@ const handleSubmit = e => {
     })
 }
 
+const deleteButton = e => {
+    e.preventDefault()
+    axios
+    .delete(`https://africa-marketplace.herokuapp.com/item/${Item.id}`)
+    .then( res => {
+        props.history.push('/')
+    })
+    .catch(err => console.log(err))
+}
+
+
 
     return (
         <div>
 
+            {/* we are sharing items here via props */}
+            {/* We need update button here with an onClick={handleSubmit} */}
+            {/* We also need the delete button here with an onClick */}
 
-
-
-
+            <button onClick={handleSubmit}>Edit Item</button>
+            <button onClick={deleteButton}>Delete Item</button>
 
 
         </div>

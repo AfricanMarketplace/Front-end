@@ -19,7 +19,7 @@ const ItemList = () => {
 
     return (
         <div>
-            
+            {/* We are maping through the array of items here */}
 
 
 
