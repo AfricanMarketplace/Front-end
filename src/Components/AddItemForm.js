@@ -1,24 +1,44 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+// import {loginReducer} from "../reducers/loginReducer";
+import {connect} from "react-redux";
 
 const AddItemForm = (props) => {
+console.log("HELLOPROPS",props)
 
-const [addItem, setAddItem] = useState()
+const [addItem, setAddItem] = useState({name: '', description: '', price: '', user_id: Number(localStorage.getItem('user_id')), category_id: 2})
 
-    const handlechanges = e => {
+const [items, setItems] = useState([])
+
+
+   const handleChanges = e => {
     e.preventDefault();
     setAddItem({...addItem, [e.target.name] : e.target.value})
 }
 
+useEffect(() => {
+    axiosWithAuth()
+    .get("https://africa-marketplace.herokuapp.com/item")
+    .then(res => {
+        setItems(res.data.items)
+        console.log(res)
+    })
+    .catch(err => console.log(err))
+},[])
+
+
 const submitAddItem = e => {
     e.preventDefault()
+    console.log(addItem)
     axiosWithAuth()
-    .post("/item", addItem)
+    .post("https://africa-marketplace.herokuapp.com/item", addItem)
     .then(res => {
+        
         console.log(res)
-        props.setItems(res.data)
+        setAddItem(res.data)
+        props.history.push('/itemList')
     })
-    setAddItem({itemName: '', description: '', price: ''})
+    setAddItem({name: '', description: '', price: '', user_id: Number(localStorage.getItem('user_id')), category_id: ''})
 }
 
 
@@ -30,24 +50,24 @@ const submitAddItem = e => {
                     placeholder="Item Name"
                     name="name"
                     value={addItem.itemName}
-                    onChange={props.handleChanges}
+                    onChange={handleChanges}
                 
                 />
                 <input
                     type="text"
                     placeholder="Description"
-                    name="name"
+                    name="description"
                     value={addItem.description}
-                    onChange={props.handleChanges}
+                    onChange={handleChanges}
                 
                 />
 
                 <input
-                    type="text"
+                    type="number"
                     placeholder="Price"
-                    name="name"
+                    name="price"
                     value={addItem.price}
-                    onChange={props.handleChanges}
+                    onChange={handleChanges}
                 
                 />
             </form>
@@ -57,4 +77,12 @@ const submitAddItem = e => {
     )
 }
 
-export default AddItemForm
+
+const mapStateToProps= state => {
+    console.log(state,"MAPSTATETOPROPS")
+    return {
+        user: state.user
+    }
+}
+
+export default connect(mapStateToProps,{})(AddItemForm)

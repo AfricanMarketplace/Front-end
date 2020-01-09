@@ -1,7 +1,7 @@
 import {LOGIN_START,LOGIN_SUCCESS, LOGIN_FAILURE} from "../actions/loginActions";
 
 const initialState =  {
-    user: [],
+    user: {},
     isLoading: false,
     err: ''
 }
@@ -9,6 +9,7 @@ const initialState =  {
 
 
 export const loginReducer = (state=initialState, action) => {
+    console.log(state, "THIS IS THE STATE")
 switch (action.payload) {
     case LOGIN_START :
         return {
