@@ -1,77 +1,42 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { publicDecrypt } from "crypto";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
-const initialItem = {
-    id: '',
-    name: '',
-    description: '',
-    price: '',
-    user_id: '',
-    category_id: '',
-
-}
 
 const Item = (props) => {
+    console.log(props)
 
-const [updateItem, setUpdateItem] = useState(initialItem)
+const [item, setItem] = useState({})
 
 const id = props.match.params.id
 
-
 useEffect(() => {
-axios
-.get(`https://africa-marketplace.herokuapp.com/item/${id}`)
+axiosWithAuth()
+.get(`https://africa-marketplace.herokuapp.com/item/${props.id}`)
 .then(res => {
-    console.log(res.data)
-    setUpdateItem(res.data)
+    console.log(res.data.item, "Item is rendering")
+    setItem(res.data.item)
 })
 .catch(err => console.log("The item you are looking for does not exist", err))
 
 },[id])
 
 
-const handleChanges = e => {
-    setUpdateItem({...updateItem, [e.target.name] : e.target.value})
-}
-
-
-const handleSubmit = e => {
-    e.preventDefault();
-    console.log("button fired!")
-    axios
-    .put(`https://africa-marketplace.herokuapp.com/item/${Item.id}, Item`)
-    .then(res => {
-            console.log(res.data)
-            setUpdateItem(res.data)
-            props.history.push(`/item/${Item.id}`)
-    })
-}
-
-const deleteButton = e => {
-    e.preventDefault()
-    axios
-    .delete(`https://africa-marketplace.herokuapp.com/item/${Item.id}`)
-    .then( res => {
-        props.history.push('/')
-    })
-    .catch(err => console.log(err))
-}
-
-
+console.log(item, "LOOK AT ME")
 
     return (
+        <div> 
+        {/* <Link to={`/item/${props.id}`}>  */}
         <div key={props.key}>
-            <h2> Name: {props.item.name} </h2>
-            <p> Description: {props.item.description} </p>
-            <p> Price: {props.item.price} </p>
-            {/* We need update button here with an onClick={handleSubmit} */}
-            {/* We also need the delete button here with an onClick */}
-
-            <button onClick={handleSubmit}>Edit Item</button>
-            <button onClick={deleteButton}>Delete Item</button>
+            <h2> Name: {item.name} </h2>
+            <p> Description: {item.description} </p>
+            <p> Price: {item.price} </p>
+            {console.log(item)}
+           {/* <Link to={`/updateItem/${item.id}`}><button>Edit</button> </Link> 
+            <button onClick={deleteButton}>Delete</button> */}
 
 
+        </div>
+        {/* </Link> */}
         </div>
     )
 }
