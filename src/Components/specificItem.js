@@ -34,14 +34,15 @@ const deleteButton = e => {
 
 console.log(oneItem) 
     return (
-        <div>
+        <div className="eachItem">
             <p>Name: {oneItem.name}</p>
             <p>Description: {oneItem.description}</p>
             <p>Price: {oneItem.price}</p>
-
-            <Link to={`/updateItem/${oneItem.id}`}><button>Edit</button> </Link> 
-            <button onClick={deleteButton}>Delete</button>
-            <Link to="/itemList"><button>Back</button></Link>
+            <div className="editDiv"> 
+            <Link to={`/updateItem/${oneItem.id}`}><button className="editButton">Edit</button> </Link> 
+            <button onClick={deleteButton} className="editButton">Delete</button>
+            <Link to="/itemList"><button className="editButton">Back</button></Link>
+            </div>
 
         </div>
     )

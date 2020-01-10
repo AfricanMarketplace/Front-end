@@ -37,7 +37,7 @@ axiosWithAuth()
 },[id])
 
 
-console.log(item, "LOOK AT ME")
+// console.log(item, "LOOK AT ME")
 
     return (
        
