@@ -25,7 +25,7 @@ const ItemList = (props) => {
 console.log(items)
     return (
         <div> 
-        <Link to='/' class="link">Sign Out</Link>
+        <Link to='/' class="link"><button className="signButton">Sign Out</button></Link>
         <div className="itemList">
                 {items && items.map(item => (
                     <Link to={`/item/${item.id}`}> 
@@ -35,7 +35,7 @@ console.log(items)
             
         </div>
 
-        <Link to="/addItemForm"><button>Add new Item</button> </Link>
+        <Link to="/addItemForm"><button className="signButton">Add new Item</button> </Link>
         </div>
     )
 }

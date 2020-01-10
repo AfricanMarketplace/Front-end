@@ -6,6 +6,8 @@
   background-size: contain;
 }
 
+
+
 .itemList {
   display:flex;
   justify-content: center;
@@ -30,9 +32,11 @@ button{
 
 h2{
   margin-top: 12%;
-  color: blue;
-  background-color: burlywood;
+  color: black;
+  background-color: #D3D3D3;
+  border-radius: 10px;
   opacity: .8;
+  margin-bottom:4%;
 }
 
 
@@ -53,8 +57,32 @@ h2{
   padding: 2%;
   color: blue;
   font-size: 20px;
-  background-color: burlywood;
 }
+
+
+.signButton {
+  margin-top: 2%;
+  padding: 1%;
+  border-radius: 35px;
+  background-color: #696969
+  ;
+  color: whitesmoke;
+  /* border: 2px solid orange; */
+
+}
+
+.addButton {
+  margin-top: 2%;
+  padding: 9%;
+  border-radius: 35px;
+  background-color: #696969
+  ;
+  color: whitesmoke;
+  /* border: 2px solid orange; */
+  width:120px;
+
+}
+
 
 .input{
   display: flex;
@@ -71,4 +99,28 @@ width:200px;
 height: 180px;
 background-color: white;
 opacity: 0.8;
+}
+
+.eachItem {
+  border: 2px solid black;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width:50%;
+  margin-left:25%;
+  
+}
+
+.editDiv {
+  display:flex;
+  
+}
+
+.editButton {
+  padding: 1%;
+  border-radius: 35px;
+  background-color: #696969;
+  color: whitesmoke;
+  width:100px;
 }

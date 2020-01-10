@@ -45,6 +45,7 @@ const submitAddItem = e => {
 
     return (
         <div>
+            <Link to="/itemList"><button className="signButton">Back to Items</button></Link>
             <form class="box">
                 <div>
                 <h2>Add New Item</h2>
@@ -75,8 +76,8 @@ const submitAddItem = e => {
                     class="input"
                 />
                 <div class="buttonDiv">
-                    <button onClick={submitAddItem} class="button">Add Item</button>
-                    <Link to="/itemList" class="link">Back to Items</Link>
+                    <button onClick={submitAddItem} class="addButton">Add Item</button>
+                    
                 </div>
             </form>
             

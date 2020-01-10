@@ -90,7 +90,7 @@ const UpdateForm = (props) => {
                 
                 />
             </form>
-            <button onClick={handleSubmit}>Update Item</button>
+            <button onClick={handleSubmit} className="signButton">Update Item</button>
         </div>
 
     )
