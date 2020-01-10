@@ -3,6 +3,7 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 import styled from "styled-components";
 
 
+
 const Item = (props) => {
 
     // const Divider = styled.div`
@@ -44,6 +45,7 @@ console.log(item, "LOOK AT ME")
         //   <Link to={`/item/${props.id}`}>   
             
             <div key={props.key} class="item">
+                
                 <h3> Name: {item.name} </h3>
                 <p> Description: {item.description} </p>
                 <p> Price: {item.price} </p>

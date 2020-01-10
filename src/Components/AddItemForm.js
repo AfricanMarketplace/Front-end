@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 // import {loginReducer} from "../reducers/loginReducer";
 import {connect} from "react-redux";
+import {Link} from "react-router-dom"
 
 const AddItemForm = (props) => {
 console.log("HELLOPROPS",props)
@@ -44,14 +45,17 @@ const submitAddItem = e => {
 
     return (
         <div>
-            <form>
+            <form class="box">
+                <div>
+                <h2>Add New Item</h2>
+                </div>
                 <input
                     type="text"
                     placeholder="Item Name"
                     name="name"
                     value={addItem.itemName}
                     onChange={handleChanges}
-                
+                    class="input"
                 />
                 <input
                     type="text"
@@ -59,7 +63,7 @@ const submitAddItem = e => {
                     name="description"
                     value={addItem.description}
                     onChange={handleChanges}
-                
+                    class="input"
                 />
 
                 <input
@@ -68,11 +72,14 @@ const submitAddItem = e => {
                     name="price"
                     value={addItem.price}
                     onChange={handleChanges}
-                
+                    class="input"
                 />
+                <div class="buttonDiv">
+                    <button onClick={submitAddItem} class="button">Add Item</button>
+                    <Link to="/itemList" class="link">Back to Items</Link>
+                </div>
             </form>
-            <button onClick={submitAddItem}>Add Item</button>
-
+            
         </div>
     )
 }

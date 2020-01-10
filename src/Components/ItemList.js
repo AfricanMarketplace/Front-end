@@ -25,6 +25,7 @@ const ItemList = (props) => {
 console.log(items)
     return (
         <div> 
+        <Link to='/' class="link">Sign Out</Link>
         <div className="itemList">
                 {items && items.map(item => (
                     <Link to={`/item/${item.id}`}> 
