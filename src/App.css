@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  background-image: url(https://images.unsplash.com/photo-1519011985187-444d62641929?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80);
+  width: 100%;
+  height: 100vh;
+  background-size: contain;
 }
 
 .itemList {
@@ -11,9 +15,60 @@
   flex-direction: row;
 }
 
+button{
+  width: 10%;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h2{
+  margin-top: 12%;
+  color: blue;
+  background-color: burlywood;
+  opacity: .8;
+}
+
+
+
+.box{
+  padding-top: 3%;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.button{
+  width: 100%;
+}
+
+.link{
+  padding: 2%;
+  color: blue;
+  font-size: 20px;
+  background-color: burlywood;
+}
+
+.input{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 40%;
+  margin: 0 2% 2% 2%;
+}
+
 .item {
 margin:10px;
 border:2px solid black;
 width:200px;
 height: 180px;
+background-color: white;
+opacity: 0.8;
 }
