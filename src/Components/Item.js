@@ -5,13 +5,18 @@ import styled from "styled-components";
 
 const Item = (props) => {
 
-    const Divider = styled.div`
-      text-align: center;
-       border: 2px solid red;
-       margin: 5%;
-       display: flex;
-       flexWrap: wrap;
-    `
+    // const Divider = styled.div`
+    //   text-align: center;
+    //    border: 2px solid red;
+    //    margin: 5%;
+    //    display: flex;
+    //    width:25%;
+    //    padding:0;
+       
+
+       
+       
+    // `
     
     console.log(props)
 
@@ -35,20 +40,21 @@ console.log(item, "LOOK AT ME")
 
     return (
        
-        <Divider>
-        {/* <Link to={`/item/${props.id}`}>  */}
+        //  <Divider>
+        //   <Link to={`/item/${props.id}`}>   
             
-            <div key={props.key}>
-                <h2> Name: {item.name} </h2>
+            <div key={props.key} class="item">
+                <h3> Name: {item.name} </h3>
                 <p> Description: {item.description} </p>
                 <p> Price: {item.price} </p>
                 {console.log(item)}
                 {/* <Link to={`/updateItem/${item.id}`}><button>Edit</button> </Link> 
                 <button onClick={deleteButton}>Delete</button> */}
             </div>
-        {/* </Link> */}
+          /* </Link>   */
         
-        </Divider>
+        
+         /* </Divider> */
        
     )
 }

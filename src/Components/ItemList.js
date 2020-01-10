@@ -24,17 +24,17 @@ const ItemList = (props) => {
 
 console.log(items)
     return (
-        <div>
+        <div> 
+        <div className="itemList">
                 {items && items.map(item => (
                     <Link to={`/item/${item.id}`}> 
                     <Item {...props}key={item.id} id={item.id} name={item.name}
                      description={item.description} price={item.price}/> </Link>
                 ))}
-                
-                <Link to="/addItemForm"><button>Add new Item</button> </Link>
-
-
             
+        </div>
+
+        <Link to="/addItemForm"><button>Add new Item</button> </Link>
         </div>
     )
 }
