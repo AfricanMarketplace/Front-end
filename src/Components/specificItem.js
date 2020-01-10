@@ -41,6 +41,7 @@ console.log(oneItem)
 
             <Link to={`/updateItem/${oneItem.id}`}><button>Edit</button> </Link> 
             <button onClick={deleteButton}>Delete</button>
+            <Link to="/itemList"><button>Back</button></Link>
 
         </div>
     )
