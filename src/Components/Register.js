@@ -71,7 +71,7 @@ const [newUser,setNewUser] = useState({
             </Typography>
             <form className={classes.form} onSubmit={signUp} Validate>
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
+                {/* <Grid item xs={12} sm={6}>
                   <TextField
                     autoComplete="fname"
                     name="firstName"
@@ -83,8 +83,8 @@ const [newUser,setNewUser] = useState({
                     onChange={handleChanges}
                     autoFocus
                   />
-                </Grid>
-                <Grid item xs={12} sm={6}>
+                </Grid> */}
+                {/* <Grid item xs={12} sm={6}>
                   <TextField
                     variant="outlined"
                     required
@@ -95,7 +95,7 @@ const [newUser,setNewUser] = useState({
                     onChange={handleChanges}
                     autoComplete="lname"
                   />
-                </Grid>
+                </Grid> */}
                 <Grid item xs={12}>
                   <TextField
                     variant="outlined"
@@ -122,7 +122,7 @@ const [newUser,setNewUser] = useState({
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <FormControlLabel
+                  <FormControlLabel className="label"
                     control={<Checkbox value="allowExtraEmails" color="primary" />}
                     label="I want to receive inspiration, marketing promotions and updates via email."
                   />
