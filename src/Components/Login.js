@@ -15,7 +15,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
 import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
+
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -114,7 +114,7 @@ const Login = (props) => {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} onSubmit={login} noValidate>
+          <form className={classes.form} onSubmit={login} Validate>
             <TextField
               variant="outlined"
               margin="normal"
@@ -155,8 +155,6 @@ const Login = (props) => {
                 <Link className={classes.link} to="/register" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
-            <Box mt={5}>
-            </Box>
           </form>
         </div>
       </Grid>
