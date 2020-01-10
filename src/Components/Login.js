@@ -53,10 +53,11 @@ const Login = (props) => {
     //   props.history.push("/itemList")
   }
 
+
     return (
        
         <div>
-            <form onSubmit={login}>
+            <form onSubmit={login} >
             <label> Username
                 <input 
                     name="username"
@@ -79,7 +80,7 @@ const Login = (props) => {
             </form>
             <div>
                 <h3>Don't have an Account?</h3>
-                <Link to="/register"> Register Here</Link>
+                <Link to="/register"> <button>Register Here</button></Link>
             </div>
         </div>
     )
@@ -93,3 +94,6 @@ const mapStateToProps = state => {
     }
 }
 export default connect(mapStateToProps)(Login);
+
+
+

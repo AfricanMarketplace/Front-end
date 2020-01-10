@@ -30,7 +30,7 @@ const [newUser,setNewUser] = useState({
         //Registration Form goes here
         <div>
             <form onSubmit={signUp}>
-                <label> Your Name
+                {/* <label> Your Name
                 <input 
                     type="text" 
                     name="name" 
@@ -43,7 +43,7 @@ const [newUser,setNewUser] = useState({
                     name="email" 
                     onChange={handleChanges} 
                 />
-                </label>
+                </label> */}
                 <label> Set a Username
                 <input 
                     type="text" 
@@ -60,7 +60,7 @@ const [newUser,setNewUser] = useState({
                 <button type="submit">Sign Up</button>
             </form>
             <h5>Already have an account?</h5>
-            <Link to="/">Log In</Link>
+            <Link to="/"><button>Log In</button></Link>
         </div>
     )
 }
